@@ -51,13 +51,14 @@
                 //Ici nous ajoutons lui deux propriétés qu’on va appeler $user_name et $user_pass par exemple (pour « nom d’utilisateur » et « mot de passe utilisateur »).
                 //Ici, nous nous contentons de déclarer nos propriétés sans leur attribuer de valeur :
                 class Utilisateur{
-                    protected $user_name;
-                    protected $user_pass;
-                    protected $prix_civilité;
-                    protected $prix_prenom;
+                    protected $user_civilite;
+                    protected $user_prenom;
+                    protected $prix_nom;
                     protected $prix_email;
+                    protected $prix_pseudo;
+                    protected $prix_mdp;
                     protected $prix_adresse;
-                    protected $prix_code_postale;
+                    protected $prix_code_postal;
                     protected $prix_ville;
                     // avec le $ en POO on a une proprieté
 
@@ -66,13 +67,31 @@
                     public const ABONNEMENT = 15;
                     
                     
-                    // -> c'est l'opérateur de la proprieté (une sorte de variable) : $this va chercher la proprieté de l'objet en cours
-                    public function __construct($n, $p, $r){
-                        $this->user_name = $n;
-                        $this->user_pass = $p;
-                        $this->user_region = $r;
+                    // -> c'est l'opérateur de la proprieté (une sorte de variable) : $this va chercher la proprieté de l'objet en cours // ici on fait le constructeur = les champs du formulaire
+                    public function __construct($civilite, $prenom, $nom, $email, $pseudo, $mdp, $adresse, $code_postal, $ville) {
+                        
+                        $this->user_civilite = $civilite;
+                        $this->user_prenom = $prenom;
+                        $this->user_nom = $nom;
+                        $this->user_email = $email;
+                        $this->user_pseudo = $pseudo;
+                        $this->user_mdp = $mdp;
+                        $this->user_adresse = $adresse;
+                        $this->user_code_postal= $code_postal;
+                        $this->user_ville = $ville;
                     }
                     
+                    public function isExist() {
+                        $membre = executeRequete( " SELECT * FROM membres WHERE pseudo = :pseudo ",
+                        array(
+                            ':pseudo' -> $_POST['pseudo']));
+                            // si au décompte de cette requete le résultat ne donne pas 0, c'est que le pseudo existe
+                            if ($membre -> rowCount() > 0)
+                                return true;
+                            else 
+                                return false;
+                            }
+
                     public function __destruct(){
                     //Du code à exécuter
                     }
@@ -87,8 +106,8 @@
                     }
                     
                     //Une METHODE c'est en fait une FONCTION
-                    public function setPasse($new_user_pass){
-                        $this->user_pass = $new_user_pass;
+                    public function setPasse($new_user_mdp){
+                        $this->user_pass = $new_user_mdp;
                     }
 
                     // set = 
@@ -112,8 +131,7 @@
 
         <section>
             <div class="col-md-4 mx-auto m-4">
-                <!-- <p class="alert alert-success border-success text-center"><a href="inscription.php">Pas encore membre ? Inscrivez-vous !</a></p>     -->
-                     <p>n objet c'est une instance</p>
+                <!-- <p class="alert alert-success border-success text-center"><a href="inscription.php">Pas encore membre ? Inscrivez-vous !</a></p> -->
             </div>
             <!-- fin col -->
         </section>

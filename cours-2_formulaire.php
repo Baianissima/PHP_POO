@@ -52,6 +52,9 @@
         <?php
         if (!empty($_POST)) {
             require 'classes/utilisateur.class.php';
+
+            require 'classes/membre.class.php';
+            
             //+ Vérification des données reçues (regex + filtres)
             //+ Stockage des données (base de données)
             $pierre = new Utilisateur($_POST['nom'], $_POST['pass']);
