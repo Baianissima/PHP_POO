@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <!-- Mes styles -->
-    <link rel="stylesheet" href="css/styles.css" >
+    <!-- <link rel="stylesheet" href="css/styles.css" > -->
 
     <title><title>Repo PHP_POO</title></title>
 </head>
@@ -31,20 +31,14 @@
     <!--  EN-TETE : header à preceder de NAVBAR en require      --> 
     <!-- ====================================================== --> 
     
-    <header class="container-fluid f-header p-2 mb-4 bg-light">
+    <!-- <header class="container-fluid f-header p-2 mb-4 bg-light">
         <div class="col-12 text-center">
             <h1 class="display-4">PHP POO - PROGRAMMATION ORIENTÉE OBJET</h1>
-            <p class="lead">Cours avec Christian Maurence en visio</p>
-            <p></p>
-            <!-- passage PHP pour tester s'il fonctionne avant de poursuivre -->
-                <?php
-                    // $positiva = "Tudo joia!";
-                    // echo "<p class=\"text-dark\">$positiva</p>";
-                ?>
+            <p class="lead">Utilisateur</p>
         </div>
-    </header>
+    </header> -->
     <!-- fin container-fluid header -->
-    
+
     <!-- ====================================================== -->
     <!--                CONTAINER : contenu principal           --> 
     <!-- ====================================================== -->
@@ -54,11 +48,16 @@
             <div>
             <?php
                 class Utilisateur{
+                    //Ici nous ajoutons lui deux propriétés qu’on va appeler $user_name et $user_pass par exemple (pour « nom d’utilisateur » et « mot de passe utilisateur »).
+                    //Ici, nous nous contentons de déclarer nos propriétés sans leur attribuer de valeur :
+        
                     private $user_name;
                     private $user_pass;
                     
+                    //Le mot clef public signifie ici qu’on va pouvoir accès à nos propriétés depuis l’intérieur et l’extérieur de notre classe
+
                     public function getNom(){
-                        return $this->user_name;
+                    return $this->user_name;
                     }
                     
                     public function setNom($new_user_name){
