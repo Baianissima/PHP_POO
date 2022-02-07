@@ -53,8 +53,12 @@
                 class Utilisateur{
                     protected $user_name;
                     protected $user_pass;
-                    protected $user_region;
-                    protected $prix_abo;
+                    protected $prix_civilité;
+                    protected $prix_prenom;
+                    protected $prix_email;
+                    protected $prix_adresse;
+                    protected $prix_code_postale;
+                    protected $prix_ville;
                     // avec le $ en POO on a une proprieté
 
                     /*Attention: si vous utilisez une version PHP < PHP 7.1, ce code ne

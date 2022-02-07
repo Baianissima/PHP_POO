@@ -41,23 +41,51 @@
     
         <section class="row p-2 mb-4">
             <div class="col-10">
-                <?php
-                require 'classes/utilisateur.class.php';
-                require 'classes/admin.class.php';
-                
-                // $pierre = new Utilisateur();
-                // $pierre->setNom('Pierre');
-                // $pierre->setPasse('abcdef');
+            <?php
+            require 'classes/utilisateur.class.php';
+            require 'classes/admin.class.php';
+            
+            // $pierre = new Utilisateur();
+            // $pierre->setNom('Pierre');
+            // $pierre->setPasse('abcdef');
+            // $pierre = new Admin('Pierre', 'abcdef');
+            // $mathilde = new Utilisateur('Mathilde', 123456);
 
-                // Le mot NEW est utilisé pour "instancier" une classe : une instance correspond à la "copie" d'une classe
-                $pierre = new Admin('Pierre', 'abcdef');
-                $mathilde = new Utilisateur('Mathilde', 123456);
+            // // $mathilde = new Utilisateur();
+            
+            // // echo $pierre->getNom2(). '<br>';
+            // echo $pierre->getNom(). '<br>';
+            // echo $mathilde->getNom(). '<br>';
 
-                // $mathilde = new Utilisateur();
-                
-                echo $pierre->getNom2(). '<br>';
-                echo $pierre->getNom(). '<br>';
-                echo $mathilde->getNom(). '<br>';
+            // $pierre->setBan('Paul');
+            // $pierre->setBan('Jean');
+            // echo $pierre->getBan();
+
+            $pierre = new Admin('Pierre', 'abcdef', 'Sud');
+            $mathilde = new Admin('Mathilde', 123456, 'Nord');
+            $florian = new Utilisateur('Flo', 'flotri', 'Est');
+            
+            $pierre->setPrixAbo();
+            $mathilde->setPrixAbo();
+            $florian->setPrixAbo();
+            
+            $u = 'Utilisateur';
+            echo 'Valeur de ABONNEMENT dans Utilisateur : ' .$u::ABONNEMENT. '<br>';
+            echo 'Valeur de ABONNEMENT dans Admin : ' .Admin::ABONNEMENT. '<br>';
+            
+            echo 'Prix de l\'abonnement pour ';
+            $pierre->getNom();
+            echo ' : ';
+            $pierre->getPrixAbo();
+            echo '<br>Prix de l\'abonnement pour ';
+            $mathilde->getNom();
+            echo ' : ';
+            $mathilde->getPrixAbo();
+            echo '<br>Prix de l\'abonnement pour ';
+            $florian->getNom();
+            echo ' : ';
+            $florian->getPrixAbo();
+        ?>
                 ?>
             </div>
         </section>
