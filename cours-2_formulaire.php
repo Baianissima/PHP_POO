@@ -50,7 +50,7 @@
         </div>
 
         <?php
-        if ( !empty($_POST)) {
+        if (!empty($_POST)) {
             require 'classes/utilisateur.class.php';
             //+ Vérification des données reçues (regex + filtres)
             //+ Stockage des données (base de données)
